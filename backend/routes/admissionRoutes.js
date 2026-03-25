@@ -17,7 +17,8 @@ router.get('/', protect, async (req, res) => {
 // POST submit admission (public)
 router.post('/', async (req, res) => {
   try {
-    const admission = await Admission.create(req.body);
+    const admission = req.body;
+    admission._id = 'email-only-' + Date.now();
 
     // Send emails (fire-and-forget — don't fail the response if email fails)
     Promise.all([
@@ -29,7 +30,7 @@ router.post('/', async (req, res) => {
       ),
     ]);
 
-    res.status(201).json({ message: 'Admission submitted successfully!', id: admission._id });
+    res.status(201).json({ message: 'Admission submitted successfully via Email!', id: admission._id });
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
   }
