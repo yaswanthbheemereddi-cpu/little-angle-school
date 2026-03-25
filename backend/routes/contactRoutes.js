@@ -12,7 +12,7 @@ router.post('/', asyncHandler(async (req, res) => {
   if (!name || !email || !message) {
     return res.status(400).json({ message: 'Name, email and message are required' });
   }
-  const contact = { name, email, phone, subject, message, _id: 'email-only-' + Date.now() };
+  const contact = await Contact.create({ name, email, phone, subject, message });
   // Notify school (fire-and-forget)
   sendContactNotificationToSchool(contact).catch(err => console.error('Contact email failed:', err.message));
   res.status(201).json({ message: 'Message received! We will get back to you soon.', contact });

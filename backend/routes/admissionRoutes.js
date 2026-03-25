@@ -17,8 +17,7 @@ router.get('/', protect, async (req, res) => {
 // POST submit admission (public)
 router.post('/', async (req, res) => {
   try {
-    const admission = req.body;
-    admission._id = 'email-only-' + Date.now();
+    const admission = await Admission.create(req.body);
 
     // Send emails (fire-and-forget — don't fail the response if email fails)
     Promise.all([

@@ -1,0 +1,31 @@
+origin	https://github.com/yaswanthbheemereddi-cpu/little-angle-school.git (fetch)
+origin	https://github.com/yaswanthbheemereddi-cpu/little-angle-school.git (push)
+commit ea94cd98d4dfd76de1c4d5ae2ea682b29604654d
+Author: vinaybeemireddy <vinaybeemireddy4989@gmail.com>
+Date:   Wed Mar 25 15:38:43 2026 +0530
+
+    fix(vercel): force legacy peer deps directly in custom build command
+
+commit 68c1c35e4754be351fd2b4cef95ae6b40aa25ef8
+Author: vinaybeemireddy <vinaybeemireddy4989@gmail.com>
+Date:   Wed Mar 25 15:32:19 2026 +0530
+
+    fix(frontend): add .npmrc to bypass strict Vercel peer dependencies checking
+
+commit 397b349e288e26353ec8a806bf76a5ae0f25905e
+Author: vinaybeemireddy <vinaybeemireddy4989@gmail.com>
+Date:   Wed Mar 25 15:26:58 2026 +0530
+
+    fix(frontend): restore vite v8 peer dependency
+
+commit 2c8753617912bc1d89e6528a2d5477fe94eead24
+Author: vinaybeemireddy <vinaybeemireddy4989@gmail.com>
+Date:   Wed Mar 25 15:23:49 2026 +0530
+
+    fix(frontend): downgrade Vite to valid version 6.0.1 to fix deployment
+
+commit e5b286ba59bc4f504169e8f1f7b80918300264ba
+Author: vinaybeemireddy <vinaybeemireddy4989@gmail.com>
+Date:   Wed Mar 25 15:11:15 2026 +0530
+
+    fix(frontend): replace custom CSS animation with framer-motion to prevent parser panic
