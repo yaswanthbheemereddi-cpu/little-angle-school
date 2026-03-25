@@ -1,0 +1,14 @@
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	git_status.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+commit e5b286ba59bc4f504169e8f1f7b80918300264ba
+Author: vinaybeemireddy <vinaybeemireddy4989@gmail.com>
+Date:   Wed Mar 25 15:11:15 2026 +0530
+
+    fix(frontend): replace custom CSS animation with framer-motion to prevent parser panic
