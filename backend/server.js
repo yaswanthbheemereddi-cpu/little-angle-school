@@ -22,6 +22,13 @@ app.use('/api/contact', require('./routes/contactRoutes'));
 
 // Health check
 app.get('/', (req, res) => res.send('Little Angels School API Running'));
+app.get('/api/db-test', (req, res) => {
+  res.json({ 
+    status: mongoose.connection.readyState === 1 ? 'Connected' : 'Connecting/Disconnected',
+    dbName: mongoose.connection.name,
+    uriExists: !!process.env.MONGO_URI 
+  });
+});
 
 // Serverless-optimized MongoDB connection
 const PORT = process.env.PORT || 5000;
@@ -45,6 +52,16 @@ const connectDB = async () => {
   }
 };
 connectDB();
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+  const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+  console.error(`[Error] ${req.method} ${req.url}:`, err.message);
+  res.status(statusCode).json({
+    message: err.message,
+    stack: process.env.NODE_ENV === 'production' ? null : err.stack,
+  });
+});
 
 // Create uploads directory locally if it doesn't exist
 const fs = require('fs');
