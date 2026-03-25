@@ -101,10 +101,14 @@ export default function Home() {
           </motion.div>
 
           {/* Right – hero image + stats */}
-          <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="flex flex-col gap-6">
-            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 animate-float">
-              <img src="/images/school-hero.png" alt="Little Angels High School campus" className="w-full h-72 object-cover" />
-            </div>
+          <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className=\"flex flex-col gap-6\">
+            <motion.div 
+              animate={{ y: [0, -10, 0] }} 
+              transition={{ duration: 6, repeat: Infinity, ease: \"easeInOut\" }}
+              className=\"rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20\"
+            >
+              <img src=\"/images/school-hero.png\" alt=\"Little Angels High School campus\" className=\"w-full h-72 object-cover\" />
+            </motion.div>
             <div className="grid grid-cols-2 gap-4">
               {stats.map(s => (
                 <div key={s.label} className="glass rounded-2xl p-4 text-center">
