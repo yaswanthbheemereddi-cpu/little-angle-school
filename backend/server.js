@@ -51,7 +51,7 @@ const connectDB = async () => {
     console.error('MongoDB connection error. Certain features will be disabled:', err.message);
   }
 };
-connectDB();
+// connectDB(); // Removed - controlled by api/index.js in production
 
 // Global Error Handler
 app.use((err, req, res, next) => {
